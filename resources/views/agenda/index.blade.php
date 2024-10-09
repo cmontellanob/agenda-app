@@ -26,7 +26,10 @@
         Celular
      </th>
      <th>
-        Operaciones
+        Profesion
+     </th>
+     <th>
+     Operaciones
      </th>
 
    </tr>
@@ -46,6 +49,9 @@
     </td>
     <td>
     {{$agenda->email}}
+    </td>
+    <td>
+    {{$agenda->profesion->nombre}}
     </td>
     <td>
       <a href="{{route('agenda.show',$agenda->id)}}">Mostrar</a>

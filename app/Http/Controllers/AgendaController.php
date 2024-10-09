@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Agenda;
 use Illuminate\Http\Request;
+use App\Models\Profesion;
 
 class AgendaController extends Controller
 {
@@ -24,7 +25,10 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        return view('agenda.create');
+        $profesiones = Profesion::orderBy("nombre")->get();
+        return view('agenda.create',[
+            'profesiones'=>$profesiones
+        ]);
     }
 
     /**
@@ -53,8 +57,11 @@ class AgendaController extends Controller
      */
     public function edit(Agenda $agenda)
     {
+        $profesiones = Profesion::orderBy("nombre")->get();
         return view('agenda.edit',[
-            'agenda'=>$agenda
+            'agenda'=>$agenda,
+            'profesiones'=>$profesiones
+
         ]);
     }
 

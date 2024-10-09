@@ -13,6 +13,10 @@ class Agenda extends Model
         'nombres',
         'apellidos',
         'celular',
-        'email'
+        'email',
+        'profesion_id'
     ];
+    public function profesion(){
+        return $this->belongsTo(Profesion::class, 'profesion_id');
+    }
 }

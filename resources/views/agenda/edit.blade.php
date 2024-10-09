@@ -32,6 +32,16 @@
 <label for="email">correo</label>
 <input type="text" name="email" value="{{$agenda->email}}"  >
 </div>
+<div>
+<label for="profesion_id">Profesión</label>
+<select name="profesion_id">
+    @foreach ($profesiones as $profesion)
+        <option value="{{$profesion->id}}"
+        @selected($profesion->id==$agenda->profesion_id)
+        >{{$profesion->nombre}}</option>
+    @endforeach
+</select>
+</div>
 <input type="submit" value="enviar">
 
 

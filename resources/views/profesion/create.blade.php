@@ -31,14 +31,6 @@
 <label for="email">correo</label>
 <input type="text" name="email" >
 </div>
-<div>
-<label for="profesion_id">Profesión</label>
-<select name="profesion_id">
-    @foreach ($profesiones as $profesion)
-        <option value="{{$profesion->id}}">{{$profesion->nombre}}</option>
-    @endforeach
-</select>
-</div>
 <input type="submit" value="enviar">
 
 

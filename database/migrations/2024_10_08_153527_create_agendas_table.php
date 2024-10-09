@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('apellidos',30)->nullable();
             $table->string('celular',20);
             $table->string('email')->unique();
+            $table->unsignedBigInteger('profesion_id');
+            $table->foreign('profesion_id')->references('id')->on('profesiones')->name('fk_prof');
             $table->timestamps();
         });
     }
