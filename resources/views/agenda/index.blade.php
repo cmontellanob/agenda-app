@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
 
 
- <table>
+ <table class="min-w-full divide-y divide-gray-200 overflow-x-auto">
+ <thead class="bg-gray-50">
    <tr>
-   <th>
+   <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
         CI
      </th>
      <th>
@@ -33,9 +29,10 @@
      </th>
 
    </tr>
+</thead>
    @foreach($agendas as $agenda)
     <tr>
-    <td>
+    <td class="px-6 py-4 whitespace-nowrap">
     {{$agenda->ci}}
     </td>
     <td>
@@ -53,13 +50,13 @@
     <td>
     {{$agenda->profesion->nombre}}
     </td>
-    <td>
-      <a href="{{route('agenda.show',$agenda->id)}}">Mostrar</a>
-      <a href="{{route('agenda.edit',$agenda->id)}}">Editar</a>
+    <td class="flex gap-1">
+      <a  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded"  href="{{route('agenda.show',$agenda->id)}}">Mostrar</a>
+      <a  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" href="{{route('agenda.edit',$agenda->id)}}">Editar</a>
       <form action="{{route('agenda.destroy',$agenda->id)}}" method="post">
       {{ csrf_field() }}
       @method('DELETE')
-      <input type="submit" value="eliminar">
+      <input  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" type="submit" value="Eliminar">
       </form>
 
     </td>
@@ -74,7 +71,6 @@
 
  </table>
 
- <a href="{{route('agenda.create')}}">Crear Agenda</a>
+ <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded" href="{{route('agenda.create')}}">Crear Agenda</a>
     
-</body>
-</html>
+ @endsection

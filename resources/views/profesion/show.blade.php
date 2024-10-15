@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('content')
+
     <ul>
         <li>CI: {{$agenda->ci}}</li>
         <li>Npmbres: {{$agenda->nombres}}</li>
@@ -16,5 +12,4 @@
     
     <a href="{{route('agenda.index')}}">listar</a>
 
-</body>
-</html>
+    @endsection
